@@ -10,7 +10,7 @@ O site contará com:
 - **Contato** – Ícones clicáveis e formulário funcional para envio de mensagens por e-mail.  
 
 Os responsáveis pelo desenvolvimento do projeto são:  
-- **Arthur**  
+- **Arthur Bacelete**  
 - **Gabriel**  
 - **Kaio**  
 - **Mateus Rodrigues Costa**  
