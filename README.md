@@ -15,6 +15,11 @@ Os responsáveis pelo desenvolvimento do projeto são:
 - **Kaio**  
 - **Mateus Rodrigues Costa**  
 ## 🛠️ Tecnologias Utilizadas
+- Java 21
+- Spring Boot 3.5.4
+- Angular
+- Figma para UI
+- GitHub e Git
 ## 🚀 Como Executar o Projeto
 ## 🌳 Estrutura Inicial do Site
 ## 🎨 Protótipos e Telas
