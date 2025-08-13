@@ -1,0 +1,43 @@
+# General ignores for any project
+.git
+.gitignore
+.dockerignore
+README.md
+*.md
+.idea
+.vscode
+*.iml
+*.iws
+*.ipr
+Thumbs.db
+.DS_Store
+
+# Environment-specific files
+.env
+.env.*
+!.env.example
+
+# Log files
+*.log
+logs
+*.log.*
+
+# --- Java & Spring Boot (Maven/Gradle) ---
+
+# Maven build output
+**/target/
+
+# Gradle build output and cache
+**/build/
+.gradle
+gradle/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Maven temporary files
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
