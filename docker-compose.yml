@@ -1,6 +1,6 @@
 services:
   database:
-    image: postgres:17-alpine
+    image: postgres:17
     container_name: portfolio-database
     ports:
       - "5432:5432"
@@ -32,6 +32,9 @@ services:
       SPRING_BOOT_DEVTOOLS_RESTART_TRIGGER_FILE: "pom.xml"
     env_file:
       - ./.env
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1 
     depends_on:
       database:
         condition: service_healthy
@@ -46,7 +49,6 @@ services:
       - "4200:4200"
     volumes:
       - ./portfolio-frontend:/app
-      - /app/node_modules
     depends_on:
       backend:
         condition: service_started
