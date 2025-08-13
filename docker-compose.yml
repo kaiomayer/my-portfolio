@@ -1,0 +1,56 @@
+services:
+  database:
+    image: postgres:17-alpine
+    container_name: portfolio-database
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    volumes:
+      - portfolio-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 30s
+      timeout: 15s
+      retries: 5
+      start_period: 30s
+  
+  backend:
+    build:
+      context: ./portfolio-backend
+      dockerfile: Dockerfile.dev
+    container_name: portfolio-backend
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./portfolio-backend:/app
+      - spring-cache:/root/.m2
+    environment:
+      SPRING_BOOT_DEVTOOLS_RESTART_ENABLED: "true"
+      SPRING_BOOT_DEVTOOLS_RESTART_TRIGGER_FILE: "pom.xml"
+    env_file:
+      - ./.env
+    depends_on:
+      database:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./portfolio-frontend
+      dockerfile: Dockerfile.dev
+    container_name: portfolio-frontend
+    restart: unless-stopped
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./portfolio-frontend:/app
+      - /app/node_modules
+    depends_on:
+      backend:
+        condition: service_started
+
+volumes:
+  portfolio-data:
+  spring-cache:
