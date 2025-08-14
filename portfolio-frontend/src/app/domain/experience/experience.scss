@@ -1,5 +1,5 @@
 #titulo {
-    color: #FF006E;
+    color: var(--app-pink);
     text-align: center;
     font-size: 62px;
     font-weight: bolder;
@@ -7,7 +7,7 @@
 }
 
 #subtitulo {
-    color: #FBFBFB;
+    color: var(--light-text-white);
     opacity: 0.55;
     font-size: 18px;
 }
@@ -17,7 +17,7 @@
 }
 
 .date {
-    color:#FF006E;
+    color:var(--app-pink);
     font-weight: lighter;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .description {
-    color: #FBFBFB;
+    color: var(--light-text-white);
     opacity: 0.55;
 }
 
