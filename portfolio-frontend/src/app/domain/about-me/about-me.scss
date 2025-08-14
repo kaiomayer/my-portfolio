@@ -6,7 +6,7 @@ body{
     color: white;
     font-size: 50px;
 }
-.text-name {
+.animate__flipInY{
     color: var(--app-pink);
     font-size: 60px;
 }
@@ -58,5 +58,5 @@ body{
 }
 .button-right:hover,
 .button-right:focus-visible {
-  background-color: #111; 
+  background-color: #161515; 
 }
