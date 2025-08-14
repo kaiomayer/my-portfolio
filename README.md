@@ -25,10 +25,10 @@ Os responsáveis pelo desenvolvimento do projeto são:
 ## 🌳 Estrutura Inicial do Site
 ## 🎨 Protótipos e Telas
 ## 🎨 Protótipos e Telas
-![Protótipo Home](img/Home.png)  
-![Protótipo Experience](img/experience.png)  
-![Protótipo Project](img/project.png)  
-![Protótipo Contact](img/contact.png)  
+![Protótipo Home](Img/Home.png)  
+![Protótipo Experience](Img/Experience.png)  
+![Protótipo Project](Img/Projects.png)  
+![Protótipo Contact](Img/Contact.png)  
 
 
 
