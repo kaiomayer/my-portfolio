@@ -3,11 +3,7 @@
     text-align: center;
     font-size: 62px;
     font-weight: bolder;
-    margin-bottom: 50px;
-}
-
-.main {
-    display: flex;
+    margin-bottom: 60px;
 }
 
 #subtitulo {
@@ -16,7 +12,12 @@
     font-size: 18px;
 }
 
+.experiences {
+    display: block
+}
+
 .box {
+    text-align: center;
     margin: 0 auto;
     padding: 100px;
 }
