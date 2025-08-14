@@ -1,18 +1,9 @@
-:host {
-  display: block;
-  background-color: black;
-  min-height: 100vh;
-  width: 97%;
-  margin: 0;
-  padding: 20px;
-  color: var(--app-pink); 
-}
 
 .projects-container {
   position: relative;
-  max-width: 1000px;    
+  max-width: 100%;    
   margin: 0 auto;
-  padding: 40px;
+  background-color: black;
 }
 
 
@@ -30,11 +21,11 @@
 
 .projects-container app-card {
   position: relative;
-  width: 40%;
+  width: 30%;
+  margin: 10%;
   height: 500px; 
   margin-bottom: 40px;
   display: block;
-  background-color: #302f2f;
 }
 
 .projects-container app-card:nth-child(odd) {
@@ -65,11 +56,13 @@ H1 {
   font-weight: bold;
 }
 
+
 /* Responsivo para mobile */
 @media (max-width: 768px) {
   .projects-container {
     max-width: 90%;
   }
+
   
   .projects-container::before {
     display: none;
@@ -83,22 +76,13 @@ H1 {
   }
 }
 
-::ng-deep body {
-  margin: 0;
-  padding: 0;
-  color: var(--app-pink); 
-}
 
 ::ng-deep * {
   color: var(--app-pink) !important;
   border: none !important;
 }
 
-::ng-deep .mat-card-title,
-::ng-deep .mat-card-content,
-::ng-deep .mat-button {
-  color: var(--app-pink) !important;
-}
+
 
 
 ::ng-deep app-card,
@@ -106,7 +90,7 @@ H1 {
   border: none !important;
   box-shadow: none !important;
   border-radius: 40px !important;
-  height: 100% !important; /* Garante que o mat-card ocupe toda a altura */
+  height: 100% !important; 
   display: flex !important;
   flex-direction: column !important;
 }
