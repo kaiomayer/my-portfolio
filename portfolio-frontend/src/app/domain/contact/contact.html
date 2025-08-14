@@ -1,1 +1,19 @@
-<p>contact works!</p>
+<app-hero
+  [title]="'Contato'"
+  [description]="'Conheça mais sobre minha jornada profissional na área de tecnologia'"
+/>
+<form [formGroup]="form">
+  <ul>
+    @for(field of formFields; track field){
+      <li>
+        <app-generic-input
+          [control]="field.control"
+          [inputType]="field.type"
+          [label]="field.label"
+          [placeholder]="field.placeholder"
+          [required]="field.required"
+        />
+      </li>
+    }
+  </ul>
+</form>
