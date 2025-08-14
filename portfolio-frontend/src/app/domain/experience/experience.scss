@@ -12,8 +12,23 @@
     font-size: 18px;
 }
 
+.card {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.description {
+    color: #FBFBFB;
+    opacity: 0.55;
+}
+
 .experiences {
-    display: block
+    display: flex;
+    flex-direction: column;
+}
+
+.experiences-title {
+    color: white;
 }
 
 .box {
