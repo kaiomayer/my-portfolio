@@ -3,6 +3,7 @@ import {Hero} from '../../core/layout/hero/hero';
 import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {GenericInput} from '../../shared/components/generic-input/generic-input';
 import {MailFormControl} from '../../shared/models/mailFormControl.model';
+import {MatButton} from '@angular/material/button';
 
 @Component({
   selector: 'app-contact',
@@ -10,7 +11,8 @@ import {MailFormControl} from '../../shared/models/mailFormControl.model';
     Hero,
     FormsModule,
     ReactiveFormsModule,
-    GenericInput
+    GenericInput,
+    MatButton
   ],
   templateUrl: './contact.html',
   styleUrl: './contact.scss'
@@ -18,46 +20,52 @@ import {MailFormControl} from '../../shared/models/mailFormControl.model';
 export class Contact {
   public formFields: MailFormControl[] = [
     {
-      "control": new FormControl('firstName'),
+      "control": new FormControl(''),
       "type": "text",
       "label": "First name",
       "placeholder": "",
-      "required": true
+      "required": true,
+      "controlName": "firstName"
     },
     {
-      "control": new FormControl('lastName'),
+      "control": new FormControl(''),
       "type": "text",
       "label": "Last name",
       "placeholder": "",
-      "required": true
+      "required": true,
+      "controlName": "lastName"
     },
     {
-      "control": new FormControl('email'),
+      "control": new FormControl(''),
       "type": "email",
       "label": "E-mail",
       "placeholder": "example@gmail.com",
-      "required": true
+      "required": true,
+      "controlName": "email"
     },
     {
-      "control": new FormControl('phone'),
+      "control": new FormControl(''),
       "type": "phone",
       "label": "Phone",
       "placeholder": "+(XX) XXXXX-XXXX",
-      "required": false
+      "required": false,
+      "controlName": "phone"
     },
     {
-      "control": new FormControl('subject'),
+      "control": new FormControl(''),
       "type": "text",
       "label": "Subject",
       "placeholder": "",
-      "required": true
+      "required": true,
+      "controlName": "subject"
     },
     {
-      "control": new FormControl('message'),
+      "control": new FormControl(''),
       "type": "textarea",
       "label": "Message",
       "placeholder": "",
-      "required": true
+      "required": true,
+      "controlName": "message"
     }
   ];
 
@@ -68,9 +76,10 @@ export class Contact {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', Validators.required],
-      phone: ['', Validators.required],
+      phone: [''],
       subject: ['', Validators.required],
       message: ['', Validators.required]
     });
   }
+
 }

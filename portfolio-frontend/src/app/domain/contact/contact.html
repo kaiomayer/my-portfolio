@@ -7,7 +7,6 @@
     @for(field of formFields; track field){
       <li>
         <app-generic-input
-          [control]="field.control"
           [inputType]="field.type"
           [label]="field.label"
           [placeholder]="field.placeholder"
@@ -16,4 +15,6 @@
       </li>
     }
   </ul>
+
+  <button matButton="outlined" id="submit-btn" type="submit">Send</button>
 </form>

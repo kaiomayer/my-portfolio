@@ -1,0 +1,40 @@
+.generic-input {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.generic-input label {
+  color: #E0E0E0;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.generic-input input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+
+  /* 2. Create the bottom line */
+  border-bottom: 1px solid #616161; /* A dark gray line for the resting state */
+
+  /* 3. Style the text and sizing */
+  color: #FFFFFF; /* White color for user-typed text */
+  width: 100%;
+  padding: 0.5rem 0.1rem; /* Vertical padding to lift text off the line */
+  font-size: 1.1rem;
+
+  /* 4. Add a smooth transition for the focus effect */
+  transition: border-color 0.3s ease-in-out;
+}
+
+/* --- Optional but Recommended Enhancements --- */
+
+.generic-input input:focus {
+  border-bottom-color: #FFFFFF;
+}
+
+.generic-input input::placeholder {
+  color: #757575;
+}

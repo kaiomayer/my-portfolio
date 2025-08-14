@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {FormControl, ReactiveFormsModule} from '@angular/forms';
+import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-generic-input',
@@ -16,5 +16,4 @@ export class GenericInput {
   @Input() disabled: boolean = false;
   @Input() id: string = `id-${crypto.randomUUID()}`;
   @Input() required: boolean = false;
-  @Input() control!: FormControl;
 }
