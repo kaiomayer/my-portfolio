@@ -1,13 +1,19 @@
+* {
+    background-color: black;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
 #titulo {
     color: var(--app-pink);
     text-align: center;
     font-size: 62px;
     font-weight: bolder;
     margin-bottom: 60px;
-}
-
-* {
-    background-color: black;
 }
 
 #subtitulo {
@@ -18,7 +24,7 @@
 
 .card-header {
     display: flex;
-    gap:15px;
+    gap:20px;
 }
 
 .date {
@@ -34,6 +40,8 @@
 .description {
     color: var(--light-text-white);
     opacity: 0.55;
+    margin-top: 10px;
+    font-size: 15px;
 }
 
 .experiences {
@@ -42,9 +50,13 @@
     gap: 35px;
 }
 
+.icon {
+    font-size: larger;
+}
+
 .experiences-title {
     color: white;
-    font-size: 18px;
+    font-size: 21px;
     font-weight: bolder;
 }
 
