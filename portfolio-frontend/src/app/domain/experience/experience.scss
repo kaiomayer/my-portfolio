@@ -33,6 +33,9 @@
 }
 
 .card {
+    display: flex;
+    flex-direction: column;
+    gap:12px;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -42,12 +45,13 @@
     opacity: 0.55;
     margin-top: 10px;
     font-size: 15px;
+    line-height: 0.65cm;
 }
 
 .experiences {
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    gap: 40px;
 }
 
 .icon {
