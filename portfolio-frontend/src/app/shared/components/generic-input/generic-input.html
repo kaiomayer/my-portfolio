@@ -1,0 +1,14 @@
+<div class="generic-input">
+  @if(label){
+    <label [for]="id">
+      {{label}}
+    </label>
+  }
+  <input
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [id]="id"
+    [formControl]="control"
+    [type]="inputType"
+  >
+</div>
