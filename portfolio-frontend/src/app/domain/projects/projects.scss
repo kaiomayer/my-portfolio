@@ -15,6 +15,8 @@
   padding: 40px;
 }
 
+
+
 .projects-container::before {
   content: '';
   position: absolute;
@@ -90,10 +92,19 @@ H1 {
 
 ::ng-deep * {
   color: var(--app-pink) !important;
+  border: none !important;
 }
 
 ::ng-deep .mat-card-title,
 ::ng-deep .mat-card-content,
 ::ng-deep .mat-button {
   color: var(--app-pink) !important;
+}
+
+
+::ng-deep app-card,
+::ng-deep .mat-card {
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 40px !important;
 }
