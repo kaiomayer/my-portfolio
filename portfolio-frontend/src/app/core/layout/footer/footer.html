@@ -1,1 +1,11 @@
-<p>footer works!</p>
+<footer>
+  <ul>
+    @for(item of items; track item){
+      <li>
+        <a [href]="item.url">
+          <img [src]="item.iconPath" alt="icon">
+        </a>
+      </li>
+    }
+  </ul>
+</footer>
