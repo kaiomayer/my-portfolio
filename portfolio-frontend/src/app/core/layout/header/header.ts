@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import {NgOptimizedImage} from '@angular/common';
 import {NavItem} from '../../../shared/models/navItem.model';
-import {RouterLink} from '@angular/router';
+import {RouterLink, RouterLinkActive} from '@angular/router';
 
 @Component({
   selector: 'app-header',
   imports: [
     NgOptimizedImage,
-    RouterLink
+    RouterLink,
+    RouterLinkActive
   ],
   templateUrl: './header.html',
   styleUrl: './header.scss'
@@ -17,7 +18,7 @@ export class Header {
   public navItems: NavItem[] = [
     {
       "text": "Sobre mim",
-      "url": "/about-me"
+      "url": "/about"
     },
     {
       "text": "Projetos",

@@ -33,6 +33,6 @@ a {
   color: var(--strong-text-white);
 }
 
-a:hover {
+a:hover, .active-route {
   color: var(--app-pink);
 }

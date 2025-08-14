@@ -4,7 +4,12 @@
     <ul>
       @for(item of navItems; track item){
         <li>
-          <a [routerLink]="item.url"> {{ item.text }} </a>
+          <a
+            [routerLink]="item.url"
+            [routerLinkActive]="'active-route'"
+          >
+            {{ item.text }}
+          </a>
         </li>
       }
     </ul>

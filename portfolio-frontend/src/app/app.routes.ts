@@ -8,11 +8,11 @@ import {Contact} from './domain/contact/contact';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/about-me',
+    redirectTo: '/about',
     pathMatch: 'full',
   },
   {
-    path: 'about-me',
+    path: 'about',
     component: AboutMe
   },
   {
