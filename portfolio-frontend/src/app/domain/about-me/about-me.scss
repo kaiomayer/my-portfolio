@@ -1,0 +1,62 @@
+body{
+    margin: 0;
+}
+.text-title {
+    text-align: center;
+    color: white;
+    font-size: 50px;
+}
+.text-name {
+    color: var(--app-pink);
+    font-size: 60px;
+}
+
+.sub-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FBFBFB;
+    opacity: 0.55;
+    margin-bottom: 60px;
+}
+
+.button-all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.button-left{
+    font-weight: bold;
+}
+
+.button-left,
+.button-right {
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: #fdf1f1;
+  cursor: pointer;
+  text-decoration: none; 
+  
+}
+
+.button-left {
+  background-color: var(--app-pink);
+  border-color: var(--app-pink);
+
+}
+.button-left:hover,
+.button-left:focus-visible {
+  background-color: #ff007f;  
+}
+
+.button-right {
+  background-color: #000;
+  border-color: var(--app-pink);
+}
+.button-right:hover,
+.button-right:focus-visible {
+  background-color: #111; 
+}
