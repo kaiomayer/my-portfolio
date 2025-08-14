@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 
@@ -13,7 +13,13 @@ import {MatCardModule} from '@angular/material/card';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true
 })
-export class Card {}
+export class Card {
+  @Input() title: string = '';
+  @Input() imageUrl: string = '';
+  @Input() description: string = '';
+  @Input() linkUrl: string = '#';
+  @Input() linkText: string = 'LINK';
+}
 
 
 /**  Copyright 2025 Google LLC. All Rights Reserved.

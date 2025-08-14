@@ -1,0 +1,100 @@
+:host {
+  display: block;
+  background-color: black;
+  min-height: 100vh;
+  width: 97%;
+  margin: 0;
+  padding: 20px;
+  color: var(--app-pink); 
+}
+
+.projects-container {
+  position: relative;
+  max-width: 1000px;    
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+/* Linha central */
+.projects-container::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--app-pink);
+  transform: translateX(-50%);
+}
+
+.projects-container app-card {
+  position: relative;
+  width: 40%;
+  margin-bottom: 40px;
+  display: block;
+}
+
+/* Card da esquerda (1º, 3º, 5º...) */
+.projects-container app-card:nth-child(odd) {
+  float: left;
+  clear: both;
+  margin-right: 10%;
+}
+
+/* Card da direita (2º, 4º, 6º...) */
+.projects-container app-card:nth-child(even) {
+  float: right;
+  clear: both;
+  margin-left: 10%;
+}
+
+/* Clearfix para o container */
+.projects-container::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+H1 {
+  text-align: center;
+  color: var(--app-pink);
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+/* Responsivo para mobile */
+@media (max-width: 768px) {
+  .projects-container {
+    max-width: 90%;
+  }
+  
+  .projects-container::before {
+    display: none;
+  }
+  
+  .projects-container app-card {
+    width: 100% !important;
+    float: none !important;
+    margin: 0 0 20px 0 !important;
+  }
+}
+
+::ng-deep body {
+  margin: 0;
+  padding: 0;
+  color: var(--app-pink); 
+}
+
+
+
+
+::ng-deep * {
+  color: var(--app-pink) !important;
+}
+
+::ng-deep .mat-card-title,
+::ng-deep .mat-card-content,
+::ng-deep .mat-button {
+  color: var(--app-pink) !important;
+}
