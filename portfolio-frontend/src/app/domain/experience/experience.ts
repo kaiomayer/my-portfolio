@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { Card } from '../../core/layout/card/card';
+import 'animate.css'
 
 @Component({
   selector: 'app-experience',
-  imports: [Card],
   templateUrl: './experience.html',
   styleUrl: './experience.scss'
 })
