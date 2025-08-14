@@ -1,0 +1,25 @@
+#titulo {
+    color: #FF006E;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+* {
+    background-color: black;
+    padding: 0;
+}
+
+.main {
+    display: flex;
+}
+
+#subtitulo {
+    color: #FBFBFB;
+    opacity: 0.55;
+}
+
+.box {
+    padding-top: 5px;
+    margin: 0 auto;
+}
