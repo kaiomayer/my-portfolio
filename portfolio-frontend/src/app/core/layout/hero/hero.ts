@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import {StandardLightParagraph} from '../../../shared/components/standard-light-paragraph/standard-light-paragraph';
+import 'animate.css'
 
 @Component({
   selector: 'app-hero',
