@@ -1,13 +1,9 @@
 #titulo {
     color: #FF006E;
     text-align: center;
-    font-size: 50px;
+    font-size: 62px;
     font-weight: bolder;
-}
-
-* {
-    background-color: black;
-    padding: 0;
+    margin-bottom: 50px;
 }
 
 .main {
@@ -17,9 +13,10 @@
 #subtitulo {
     color: #FBFBFB;
     opacity: 0.55;
+    font-size: 18px;
 }
 
 .box {
-    padding-top: 5px;
     margin: 0 auto;
+    padding: 100px;
 }
