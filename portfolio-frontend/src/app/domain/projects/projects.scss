@@ -12,10 +12,9 @@
   position: relative;
   max-width: 1000px;    
   margin: 0 auto;
-  padding: 40px 0;
+  padding: 40px;
 }
 
-/* Linha central */
 .projects-container::before {
   content: '';
   position: absolute;
@@ -32,16 +31,16 @@
   width: 40%;
   margin-bottom: 40px;
   display: block;
+  background-color: #302f2f;
 }
 
-/* Card da esquerda (1º, 3º, 5º...) */
 .projects-container app-card:nth-child(odd) {
   float: left;
   clear: both;
   margin-right: 10%;
 }
 
-/* Card da direita (2º, 4º, 6º...) */
+
 .projects-container app-card:nth-child(even) {
   float: right;
   clear: both;
