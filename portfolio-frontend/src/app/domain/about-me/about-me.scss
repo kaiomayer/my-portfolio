@@ -57,3 +57,65 @@
 .button-right:focus-visible {
   background-color: #161515; 
 }
+
+
+.about-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) min(38vw, 420px); 
+  grid-auto-rows: auto;
+  align-items: center;     
+  row-gap: 10px;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 24px 16px;
+  margin-top: 50px;
+}
+
+.about-main > .title-about,
+.about-main > .text-about,
+.about-main > li {
+  grid-column: 1;
+}
+
+.about-main > img {
+  grid-column: 2;
+  grid-row: 1 / span 3;    
+  justify-self: end;
+  align-self: center;
+  max-width: 100%;
+  height: auto;   
+}
+
+.title-about {
+  color: white;
+  margin: 0 0 8px;
+  font-weight: 600;
+  font-size: 30px;
+}
+.text-about {
+  margin: 0 0 12px;
+  line-height: 1.6;
+  max-width: 60ch;         
+  color: #FBFBFB;
+  opacity: 0.55;
+}
+
+.about-main > li {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;         
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+}
+.about-main > li > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.about-main > li > ul img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  display: block;
+}
