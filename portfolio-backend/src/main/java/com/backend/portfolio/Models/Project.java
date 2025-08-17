@@ -25,11 +25,16 @@ public class Project {
 
     private String url;
 
-    public Project(String title, LocalDate startDate, String description, String url) {
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public Project(String title, LocalDate startDate, String description, String url, User user) {
         this.title = title;
         this.startDate = startDate;
         this.description = description;
         this.url = url;
+        this.user = user;
     }
 
 }
