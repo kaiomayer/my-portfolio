@@ -8,7 +8,6 @@
 }
 
 .projects-container app-card {
-  position: relative;
   width: 80%;           
   height: 500px; 
   margin-bottom: 40px;
@@ -16,7 +15,7 @@
 }
 
 
-H1 {
+h1 {
   text-align: center;
   color: var(--app-pink);
   margin-bottom: 30px;
@@ -38,8 +37,7 @@ H1 {
   .projects-container app-card {
     width: 100% !important;
     height: 450px !important;
-    float: none !important;
-    margin: 0 0 20px 0 !important;
+    margin-bottom: 20px !important;
   }
 }
 

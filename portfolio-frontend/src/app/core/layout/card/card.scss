@@ -90,37 +90,32 @@ mat-card-actions {
   flex-direction: row;
   gap: 32px;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   width: 100%;
   flex: 1;
 }
 
-.card-image-side {
-   width: 400px !important;
-    height: 250px !important;
-    object-fit: cover !important;
-    flex-shrink: 0;
-    margin: 0 auto;
-  
-}
-
 .card-info-side {
-  flex: 1;
+  max-width: 50vw;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-left: auto;
+  margin-right: 0;
   align-items: center;
-  height: 100%;
+  box-sizing: border-box;
+  padding-right: 24px;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 img[mat-card-image] {
-  height: 200px;
-  object-fit: cover;
-  width: 90%;
+  margin: 0% 10% 10% 10%;
+  height: 250px;
+  width: 400px;
   border-radius: 15px;
   opacity: 0.95;
-  margin: 0 auto;
-  display: block;
 }
 
 
@@ -138,13 +133,4 @@ img[mat-card-image] {
   border-radius: 20px;
   pointer-events: none;
   z-index: 1;
-}
-
-
-mat-card-header,
-mat-card-content,
-mat-card-actions,
-img[mat-card-image] {
-  position: relative;
-  z-index: 2;
 }
