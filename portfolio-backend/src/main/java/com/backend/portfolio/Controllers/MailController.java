@@ -1,7 +1,8 @@
-package com.backend.portfolio.controllers;
+package com.backend.portfolio.Controllers;
 
-import com.backend.portfolio.dtos.MailDTO;
-import com.backend.portfolio.services.MailService;
+import com.backend.portfolio.Dtos.MailDTO;
+import com.backend.portfolio.Services.MailService;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -12,14 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/email")
+@RequestMapping("/api/v1/emails")
+@AllArgsConstructor
 public class MailController {
 
-    public MailService mailService;
-
-    public MailController(MailService mailService){
-        this.mailService = mailService;
-    }
+    private final MailService mailService;
 
     @PostMapping(consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public ResponseEntity<HttpStatus> sendMail(@Valid @RequestBody MailDTO mailData){

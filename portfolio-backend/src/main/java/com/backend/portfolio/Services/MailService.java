@@ -1,7 +1,7 @@
-package com.backend.portfolio.services;
+package com.backend.portfolio.Services;
 
-import com.backend.portfolio.dtos.MailDTO;
-import com.backend.portfolio.utils.MailUtils;
+import com.backend.portfolio.Dtos.MailDTO;
+import com.backend.portfolio.Utils.MailUtils;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;

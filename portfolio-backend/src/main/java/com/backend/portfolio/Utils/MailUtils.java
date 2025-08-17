@@ -1,6 +1,6 @@
-package com.backend.portfolio.utils;
+package com.backend.portfolio.Utils;
 
-import com.backend.portfolio.dtos.MailDTO;
+import com.backend.portfolio.Dtos.MailDTO;
 
 public class MailUtils {
     public static String formatBody(MailDTO data){

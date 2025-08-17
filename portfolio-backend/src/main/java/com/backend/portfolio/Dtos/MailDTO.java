@@ -1,4 +1,4 @@
-package com.backend.portfolio.dtos;
+package com.backend.portfolio.Dtos;
 
 import jakarta.validation.constraints.*;
 
