@@ -4,6 +4,8 @@
   width: 100%;
 }
 
+
+
 .example-card {
   max-width: none; 
   width: 100%;
@@ -83,12 +85,42 @@ mat-card-actions {
   }
 }
 
+.card-content-row {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex: 1;
+}
+
+.card-image-side {
+   width: 400px !important;
+    height: 250px !important;
+    object-fit: cover !important;
+    flex-shrink: 0;
+    margin: 0 auto;
+  
+}
+
+.card-info-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 img[mat-card-image] {
   height: 200px;
   object-fit: cover;
-  width: 100%;
-  border-radius: 15px 15px 0 0;
-  opacity: 0.95; 
+  width: 90%;
+  border-radius: 15px;
+  opacity: 0.95;
+  margin: 0 auto;
+  display: block;
 }
 
 

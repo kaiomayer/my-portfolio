@@ -2,13 +2,19 @@
   <mat-card-header>
     <mat-card-title>{{ title }}</mat-card-title>
   </mat-card-header>
-  <img mat-card-image [src]="imageUrl" [alt]="title">
-  <mat-card-content>
-    <p>{{ description }}</p>
-  </mat-card-content>
-  <mat-card-actions>
-    <a mat-button [href]="linkUrl" target="_blank">{{ linkText }}</a>
-  </mat-card-actions>
+  <div class="card-content-row">
+    <div class="card-image-side">
+      <img mat-card-image [src]="imageUrl" [alt]="title">
+    </div>
+    <div class="card-info-side">
+      <mat-card-content>
+        <p>{{ description }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-button [href]="linkUrl" target="_blank">{{ linkText }}</a>
+      </mat-card-actions>
+    </div>
+  </div>
 </mat-card>
 
 

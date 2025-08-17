@@ -1,53 +1,20 @@
-
 .projects-container {
-  position: relative;
-  max-width: 100%;    
-  margin: 0 auto;
+  position: relative; 
   background-color: black;
-}
-
-
-
-.projects-container::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background-color: var(--app-pink);
-  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .projects-container app-card {
   position: relative;
-  width: 30%;
-  margin-left: 10%;
-  margin-right: 10%;
+  width: 80%;           
   height: 500px; 
   margin-bottom: 40px;
   display: block;
 }
 
-.projects-container app-card:nth-child(odd) {
-  float: left;
-  clear: both;
-  margin-right: 10%;
-}
-
-
-.projects-container app-card:nth-child(even) {
-  float: right;
-  clear: both;
-  margin-left: 10%;
-}
-
-/* Clearfix para o container */
-.projects-container::after {
-  content: '';
-  display: table;
-  clear: both;
-}
 
 H1 {
   text-align: center;
@@ -58,7 +25,6 @@ H1 {
 }
 
 
-/* Responsivo para mobile */
 @media (max-width: 768px) {
   .projects-container {
     max-width: 100%;
@@ -71,61 +37,15 @@ H1 {
   
   .projects-container app-card {
     width: 100% !important;
-    height: 450px !important; /* Altura fixa para mobile também */
+    height: 450px !important;
     float: none !important;
     margin: 0 0 20px 0 !important;
   }
 }
 
-
-::ng-deep * {
-  color: var(--app-pink) !important;
-  border: none !important;
-}
-
-
-
-
 ::ng-deep app-card,
 ::ng-deep .mat-card {
-  border: none !important;
-  box-shadow: none !important;
-  border-radius: 40px !important;
   height: 100% !important; 
   display: flex !important;
   flex-direction: column !important;
-}
-
-
-::ng-deep .mat-card {
-  .mat-card-header {
-    flex-shrink: 0;
-  }
-  
-  .mat-card-image {
-    height: 200px !important; 
-    object-fit: cover !important;
-    flex-shrink: 0;
-  }
-  
-  .mat-card-content {
-    flex: 1 !important; 
-    overflow: hidden !important;
-    display: flex !important;
-    flex-direction: column !important;
-    
-    p {
-      flex: 1 !important;
-      overflow: hidden !important;
-      text-overflow: ellipsis !important;
-      display: -webkit-box !important;
-      -webkit-line-clamp: 4 !important; 
-      -webkit-box-orient: vertical !important;
-    }
-  }
-  
-  .mat-card-actions {
-    flex-shrink: 0;
-    margin-top: auto !important;
-  }
 }
