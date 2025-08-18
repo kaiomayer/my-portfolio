@@ -34,10 +34,10 @@ public class AuthController {
     @PostMapping(name = "/login", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> login(@Valid @RequestBody LoginDTO loginData, HttpServletResponse response) {
         try {
-            UsernamePasswordAuthenticationToken userData = new UsernamePasswordAuthenticationToken(loginData.getUsername(),
+            var userData = new UsernamePasswordAuthenticationToken(loginData.getUsername(),
                     loginData.getPassword());
-            Authentication auth = authenticationManager.authenticate(userData);
 
+            Authentication auth = authenticationManager.authenticate(userData);
             String token = tokenService.generateToken((User) auth.getPrincipal());
 
             ResponseCookie cookie = ResponseCookie.from("token", token)
