@@ -5,6 +5,7 @@ import com.backend.portfolio.Models.User;
 import com.backend.portfolio.Repositories.UserRepository;
 import com.backend.portfolio.Services.AuthService;
 import com.backend.portfolio.Services.TokenJWTService;
+import com.backend.portfolio.Services.UserService;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.apache.tomcat.util.http.SameSiteCookies;
@@ -26,6 +27,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
     @Autowired
     private TokenJWTService tokenJWTService;
+
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private UserRepository userRepository;
@@ -61,10 +65,7 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Nome de usuário já existe!");
         }
 
-        String encryptedPassword = new BCryptPasswordEncoder().encode(data.getPassword());
-        User user = new User(data.getUsername(), encryptedPassword);
-
-        userRepository.save(user);
+        User user = userService.save(data);
         return ResponseEntity.ok(user);
     }
 
