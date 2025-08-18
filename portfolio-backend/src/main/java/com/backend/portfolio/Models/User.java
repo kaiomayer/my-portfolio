@@ -3,6 +3,7 @@ package com.backend.portfolio.Models;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,6 +16,7 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 public class User implements UserDetails {
@@ -33,10 +35,9 @@ public class User implements UserDetails {
     @Size(max = 500)
     private String bio;
 
-    public User(String username, String password, String bio){
+    public User(@NotBlank @Size(min = 5, max = 64) String username, @NotBlank String password) {
         this.username = username;
         this.password = password;
-        this.bio = bio;
     }
 
     @Override
