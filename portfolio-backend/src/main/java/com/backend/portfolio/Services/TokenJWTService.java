@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 
 @Service
-public class TokenService {
+public class TokenJWTService {
     @Value("${api.security.token.secret}")
     private String secret;
 

@@ -3,6 +3,7 @@ package com.backend.portfolio.Controllers;
 import com.backend.portfolio.Dtos.LoginDTO;
 import com.backend.portfolio.Models.User;
 import com.backend.portfolio.Repositories.UserRepository;
+import com.backend.portfolio.Services.TokenJWTService;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.apache.tomcat.util.http.SameSiteCookies;
@@ -23,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/auth")
 public class AuthController {
     @Autowired
-    private TokenService tokenService;
+    private TokenJWTService tokenJWTService;
 
     @Autowired
     private UserRepository userRepository;
@@ -38,7 +39,7 @@ public class AuthController {
                     loginData.getPassword());
 
             Authentication auth = authenticationManager.authenticate(userData);
-            String token = tokenService.generateToken((User) auth.getPrincipal());
+            String token = tokenJWTService.generateToken((User) auth.getPrincipal());
 
             ResponseCookie cookie = ResponseCookie.from("token", token)
                     .httpOnly(true)
