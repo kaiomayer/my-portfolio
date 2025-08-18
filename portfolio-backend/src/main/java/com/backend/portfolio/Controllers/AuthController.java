@@ -32,7 +32,7 @@ public class AuthController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    @PostMapping(name = "/login", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/login", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> login(@Valid @RequestBody LoginDTO loginData, HttpServletResponse response) {
         try {
             var userData = new UsernamePasswordAuthenticationToken(loginData.getUsername(),
@@ -58,7 +58,7 @@ public class AuthController {
         }
     }
 
-    @PostMapping(name = "/register", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/register", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> register(@Valid @RequestBody LoginDTO data) { //usando o dto do login por enquanto;
         if (userRepository.findByUsername(data.getUsername()) != null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Nome de usuário já existe!");
@@ -71,7 +71,7 @@ public class AuthController {
         return ResponseEntity.ok(user);
     }
 
-    @PostMapping(name = "logout", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/logout", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<HttpStatus> logout() {
         return ResponseEntity.noContent().build();
     }

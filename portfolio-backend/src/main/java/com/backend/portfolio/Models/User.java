@@ -23,7 +23,7 @@ public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private Long String;
+    private String id;
 
     @NotBlank
     @Size(min = 5, max = 64)
