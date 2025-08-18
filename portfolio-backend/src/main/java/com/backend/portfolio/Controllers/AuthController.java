@@ -28,13 +28,12 @@ public class AuthController {
 
     @PostMapping(name = "/login", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> login(@Valid @RequestBody LoginDTO loginData, HttpServletResponse response) {
-        String token = "";
         try {
             UsernamePasswordAuthenticationToken userData = new UsernamePasswordAuthenticationToken(loginData.getUsername(),
                     loginData.getPassword());
             Authentication auth = authenticationManager.authenticate(userData);
 
-            token = tokenService.generateToken((User) auth.getPrincipal());
+            String token = tokenService.generateToken((User) auth.getPrincipal());
 
             ResponseCookie cookie = ResponseCookie.from("token", token)
                     .httpOnly(true)
