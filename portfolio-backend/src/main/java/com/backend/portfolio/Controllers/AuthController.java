@@ -3,6 +3,7 @@ package com.backend.portfolio.Controllers;
 import com.backend.portfolio.Dtos.LoginDTO;
 import com.backend.portfolio.Models.User;
 import com.backend.portfolio.Repositories.UserRepository;
+import com.backend.portfolio.Services.AuthService;
 import com.backend.portfolio.Services.TokenJWTService;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
@@ -30,6 +31,9 @@ public class AuthController {
     private UserRepository userRepository;
 
     @Autowired
+    private AuthService authService;
+
+    @Autowired
     private AuthenticationManager authenticationManager;
 
     @PostMapping(path = "/login", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -40,14 +44,7 @@ public class AuthController {
 
             Authentication auth = authenticationManager.authenticate(userData);
             String token = tokenJWTService.generateToken((User) auth.getPrincipal());
-
-            ResponseCookie cookie = ResponseCookie.from("token", token)
-                    .httpOnly(true)
-                    .maxAge(24 * 60 * 60)
-                    .secure(false)
-                    .sameSite(SameSiteCookies.STRICT.toString())
-                    .path("/")
-                    .build();
+            ResponseCookie cookie = authService.setTokenInCookie(token);
 
             response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
             return ResponseEntity.ok(auth);
