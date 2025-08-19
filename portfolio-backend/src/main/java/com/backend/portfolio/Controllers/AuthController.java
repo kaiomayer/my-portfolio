@@ -8,15 +8,11 @@ import com.backend.portfolio.Services.TokenJWTService;
 import com.backend.portfolio.Services.UserService;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
-import org.apache.tomcat.util.http.SameSiteCookies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.token.TokenService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,8 +41,8 @@ public class AuthController {
     public ResponseEntity<?> login(@RequestBody @Valid LoginDTO data, HttpServletResponse response) {
         try {
             var userData = new UsernamePasswordAuthenticationToken(data.getUsername(), data.getPassword());
-            System.out.println(userData);
             var auth = authenticationManager.authenticate(userData);
+            System.out.println(auth);
 
             String token = tokenJWTService.generateToken((User) auth.getPrincipal());
             System.out.println(token);
@@ -63,7 +59,7 @@ public class AuthController {
         }
     }
 
-    @PostMapping(path = "/register", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/register")
     public ResponseEntity<?> register(@Valid @RequestBody LoginDTO data) { //usando o dto do login por enquanto;
         if (userRepository.findByUsername(data.getUsername()) != null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Nome de usuário já existe!");
@@ -73,7 +69,7 @@ public class AuthController {
         return ResponseEntity.ok(user);
     }
 
-    @PostMapping(path = "/logout", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/logout")
     public ResponseEntity<HttpStatus> logout() {
         return ResponseEntity.noContent().build();
     }
