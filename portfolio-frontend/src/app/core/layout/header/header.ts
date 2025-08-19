@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import {NgOptimizedImage} from '@angular/common';
 import {NavItem} from '../../../shared/models/navItem.model';
 import {RouterLink, RouterLinkActive} from '@angular/router';
 
 @Component({
   selector: 'app-header',
   imports: [
-    NgOptimizedImage,
     RouterLink,
     RouterLinkActive
   ],
@@ -31,8 +29,18 @@ export class Header {
     {
       "text": "Contato",
       "url": "/contact"
+    }, 
+    {
+      "text": "Login",
+      "url": "/login"
+    }, 
+    {
+      "text": "Editar",
+      "url": "/edit"
+    }, 
+    {
+      "text": "Logout",
+      "url": "/logout"
     }
   ];
-
-
 }
