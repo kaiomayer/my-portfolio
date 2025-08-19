@@ -11,7 +11,7 @@ public class AuthService {
                 .httpOnly(true)
                 .maxAge(24 * 60 * 60)
                 .secure(false)
-                .sameSite(SameSiteCookies.STRICT.toString())
+                .sameSite("Strict")
                 .path("/")
                 .build();
     }

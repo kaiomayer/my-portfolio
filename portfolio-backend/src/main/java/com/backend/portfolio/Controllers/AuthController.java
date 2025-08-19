@@ -25,6 +25,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1/auth")
 public class AuthController {
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
     @Autowired
     private TokenJWTService tokenJWTService;
 
@@ -37,21 +41,21 @@ public class AuthController {
     @Autowired
     private AuthService authService;
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
-
-    @PostMapping(path = "/login", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> login(@Valid @RequestBody LoginDTO loginData, HttpServletResponse response) {
+    @PostMapping(path = "/login")
+    public ResponseEntity<?> login(@RequestBody @Valid LoginDTO data, HttpServletResponse response) {
         try {
-            var userData = new UsernamePasswordAuthenticationToken(loginData.getUsername(),
-                    loginData.getPassword());
+            var userData = new UsernamePasswordAuthenticationToken(data.getUsername(), data.getPassword());
+            System.out.println(userData);
+            var auth = authenticationManager.authenticate(userData);
 
-            Authentication auth = authenticationManager.authenticate(userData);
             String token = tokenJWTService.generateToken((User) auth.getPrincipal());
+            System.out.println(token);
+
             ResponseCookie cookie = authService.setTokenInCookie(token);
+            System.out.println(cookie.toString());
 
             response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
-            return ResponseEntity.ok(auth);
+            return ResponseEntity.ok(userData);
 
         } catch (AuthenticationException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuário ou senha inválidos");
