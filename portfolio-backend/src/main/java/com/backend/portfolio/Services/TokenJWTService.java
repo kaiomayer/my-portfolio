@@ -3,6 +3,8 @@ package com.backend.portfolio.Services;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
+import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.backend.portfolio.Models.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -31,6 +33,20 @@ public class TokenJWTService {
             return token;
         } catch (JWTCreationException exception) {
             throw new RuntimeException("Erro na hora de gerar o token!", exception);
+        }
+    }
+
+    public String validateToken(String token) {
+        try {
+            Algorithm algorithm = Algorithm.HMAC256(secret);
+            DecodedJWT decoded = JWT.require(algorithm)
+                    .withIssuer("auth-api")
+                    .build()
+                    .verify(token);
+            return decoded.getSubject();
+        }
+        catch (JWTVerificationException exception) {
+            throw new RuntimeException("Erro na hora de validar o token!", exception);
         }
     }
 
