@@ -5,14 +5,26 @@
 <form [formGroup]="form">
   <ul>
     @for(field of formFields; track field){
-      <li>
-        <app-generic-input
-          [inputType]="field.type"
-          [label]="field.label"
-          [placeholder]="field.placeholder"
-          [required]="field.required"
-        />
-      </li>
+      @if (field.label === 'Subject' || field.label === 'Message'){
+        <li class="full-width">
+          <app-generic-input
+            [inputType]="field.type"
+            [label]="field.label"
+            [placeholder]="field.placeholder"
+            [required]="field.required"
+          />
+        </li>
+      } @else {
+        <li>
+          <app-generic-input
+            [inputType]="field.type"
+            [label]="field.label"
+            [placeholder]="field.placeholder"
+            [required]="field.required"
+          />
+        </li>
+      }
+
     }
   </ul>
 

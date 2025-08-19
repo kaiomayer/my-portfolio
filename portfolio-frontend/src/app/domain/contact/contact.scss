@@ -18,6 +18,10 @@ li {
   padding: 12px;
 }
 
+.full-width {
+  grid-column: 1 / -1;
+}
+
 #submit-btn {
   border-color: var(--app-pink);
   color: var(--light-text-white);
