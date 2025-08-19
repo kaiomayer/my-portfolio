@@ -1,8 +1,7 @@
-package com.myapp.estoque.security;
+package com.backend.portfolio.Security;
 
 import com.backend.portfolio.Repositories.UserRepository;
 import com.backend.portfolio.Services.TokenJWTService;
-import com.myapp.estoque.repository.UsuarioRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
