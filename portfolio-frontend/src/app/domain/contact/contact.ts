@@ -95,7 +95,15 @@ export class Contact {
   }
 
   onSubmit() {
-    console.table(this.preparePayload());
+    this.mailService.sendMail(this.form.value).subscribe(
+      data => {
+
+      },
+      error => {
+
+      },
+
+    )
   }
 
   protected readonly onsubmit = onsubmit;
