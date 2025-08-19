@@ -2,7 +2,7 @@
   [title]="'Contato'"
   [description]="'Conheça mais sobre minha jornada profissional na área de tecnologia'"
 />
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
   <ul>
     @for(field of formFields; track field){
       @if (field.label === 'Subject' || field.label === 'Message'){
@@ -12,6 +12,7 @@
             [label]="field.label"
             [placeholder]="field.placeholder"
             [required]="field.required"
+            [control]="this.getControl(field.controlName)"
           />
         </li>
       } @else {
@@ -21,12 +22,11 @@
             [label]="field.label"
             [placeholder]="field.placeholder"
             [required]="field.required"
+            [control]="this.getControl(field.controlName)"
           />
         </li>
       }
-
     }
   </ul>
-
   <button matButton="outlined" id="submit-btn" type="submit">Send</button>
 </form>

@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Hero} from '../../core/layout/hero/hero';
 import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {GenericInput} from '../../shared/components/generic-input/generic-input';
 import {MailFormControl} from '../../shared/models/mailFormControl.model';
 import {MatButton} from '@angular/material/button';
+import {MailService} from '../../core/services/MailService/mail-service';
+import {Mail} from '../../shared/models/mail.model';
 
 @Component({
   selector: 'app-contact',
@@ -70,8 +72,9 @@ export class Contact {
   ];
 
   public form: FormGroup;
+  private mailService : MailService;
 
-  constructor(public formBuilder: FormBuilder) {
+  constructor(public formBuilder: FormBuilder, mailService: MailService) {
     this.form = formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -80,6 +83,20 @@ export class Contact {
       subject: ['', Validators.required],
       message: ['', Validators.required]
     });
+    this.mailService = mailService;
   }
 
+  private preparePayload() : Mail{
+    return this.form.value as Mail;
+  }
+
+  public getControl(name: string): FormControl {
+    return this.form.get(name) as FormControl;
+  }
+
+  onSubmit() {
+    console.table(this.preparePayload());
+  }
+
+  protected readonly onsubmit = onsubmit;
 }

@@ -16,4 +16,5 @@ export class GenericInput {
   @Input() disabled: boolean = false;
   @Input() id: string = `id-${crypto.randomUUID()}`;
   @Input() required: boolean = false;
+  @Input() control!: FormControl;
 }
