@@ -1,0 +1,24 @@
+
+.app-button {
+  font-weight: bold;
+  font-size: 15px;  
+  border: 2px solid transparent;
+  cursor: pointer;
+  color: #ffffff; 
+  background-color: transparent; 
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-1px);
+    outline: none;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
