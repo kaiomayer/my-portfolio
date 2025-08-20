@@ -10,6 +10,7 @@ import com.backend.portfolio.Services.UserService;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.*;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -21,9 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1/auth")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class AuthController {
-
     private final AuthenticationManager authenticationManager;
 
     private final TokenJWTService tokenJWTService;
