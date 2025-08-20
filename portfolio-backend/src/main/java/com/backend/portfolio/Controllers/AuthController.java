@@ -42,14 +42,10 @@ public class AuthController {
         try {
             var userData = new UsernamePasswordAuthenticationToken(data.getUsername(), data.getPassword());
             var auth = authenticationManager.authenticate(userData);
-            System.out.println(auth);
 
             String token = tokenJWTService.generateToken((User) auth.getPrincipal());
-            System.out.println(token);
-
+            
             ResponseCookie cookie = authService.setTokenInCookie(token);
-            System.out.println(cookie.toString());
-
             response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
             return ResponseEntity.ok(userData);
 
@@ -62,7 +58,7 @@ public class AuthController {
     @PostMapping(path = "/register")
     public ResponseEntity<?> register(@Valid @RequestBody LoginDTO data) { //usando o dto do login por enquanto;
         if (authService.loadUserByUsername(data.getUsername()) != null) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Nome de usuário já existe!");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Usuário já existe!");
         }
 
         User user = userService.save(data);
