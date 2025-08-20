@@ -32,8 +32,11 @@ public class User implements UserDetails {
     @NotBlank
     private String password;
 
-    @Size(max = 500)
+    @Size(max = 128)
     private String bio;
+
+    @Size(max = 500)
+    private String description;
 
     public User(@NotBlank @Size(min = 5, max = 64) String username, @NotBlank String password) {
         this.username = username;

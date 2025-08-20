@@ -6,17 +6,14 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Service
-@NoArgsConstructor
+@RequiredArgsConstructor
 public class MailService {
-    private JavaMailSender mailSender;
-    private final String userEmail = System.getenv("EMAIL");
+    private final JavaMailSender mailSender;
 
-    public MailService(JavaMailSender mailSender){
-        this.mailSender = mailSender;
-    }
+    private String userEmail = System.getenv("EMAIL");
 
     public void sendSimpleMail(MailDTO mail){
         SimpleMailMessage email = new SimpleMailMessage();

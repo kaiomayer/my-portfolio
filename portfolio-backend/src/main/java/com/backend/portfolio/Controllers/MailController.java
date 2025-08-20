@@ -18,7 +18,7 @@ import jakarta.validation.Valid;
 public class MailController {
     private final MailService mailService;
 
-    @PostMapping(consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<HttpStatus> sendMail(@Valid @RequestBody MailDTO mailData){
         this.mailService.sendSimpleMail(mailData);
         return ResponseEntity.noContent().build();
