@@ -1,6 +1,7 @@
 package com.backend.portfolio.Services;
 
 import com.backend.portfolio.Repositories.UserRepository;
+import lombok.AllArgsConstructor;
 import org.apache.tomcat.util.http.SameSiteCookies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseCookie;
@@ -10,9 +11,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class AuthService implements UserDetailsService {
-    @Autowired
-    private UserRepository userRepository;
+
+    private final UserRepository userRepository;
 
     public ResponseCookie setTokenInCookie(String token) {
         return ResponseCookie.from("token", token)

@@ -4,13 +4,12 @@ import com.backend.portfolio.Dtos.LoginDTO;
 import com.backend.portfolio.Exceptions.UserAlreadyExistsException;
 import com.backend.portfolio.Exceptions.UserNotFoundException;
 import com.backend.portfolio.Models.User;
-import com.backend.portfolio.Repositories.UserRepository;
 import com.backend.portfolio.Services.AuthService;
 import com.backend.portfolio.Services.TokenJWTService;
 import com.backend.portfolio.Services.UserService;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.*;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -22,22 +21,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1/auth")
+@AllArgsConstructor
 public class AuthController {
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
+    private final AuthenticationManager authenticationManager;
 
-    @Autowired
-    private TokenJWTService tokenJWTService;
+    private final TokenJWTService tokenJWTService;
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private AuthService authService;
+    private final AuthService authService;
 
     @PostMapping(path = "/login")
     public ResponseEntity<?> login(@RequestBody @Valid LoginDTO data, HttpServletResponse response) {

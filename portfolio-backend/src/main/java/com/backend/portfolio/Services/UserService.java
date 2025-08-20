@@ -3,14 +3,15 @@ package com.backend.portfolio.Services;
 import com.backend.portfolio.Dtos.LoginDTO;
 import com.backend.portfolio.Models.User;
 import com.backend.portfolio.Repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class UserService {
-    @Autowired
-    private UserRepository userRepository;
+
+    private final UserRepository userRepository;
 
     public User save(LoginDTO data) {
         String encryptedPassword = new BCryptPasswordEncoder().encode(data.getPassword());
