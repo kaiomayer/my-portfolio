@@ -5,7 +5,8 @@ import {AboutMe} from './domain/about-me/about-me';
 import {Contact} from './domain/contact/contact';
 import { Login } from './domain/login/login';
 import { Edit } from './domain/edit/edit';
-import { NotFound } from './domain/not-found/not-found';
+import { NotFound } from './shared/components/error-pages/not-found/not-found';
+import { Unauthorized } from './shared/components/error-pages/unauthorized/unauthorized.component';
 
 
 export const routes: Routes = [
