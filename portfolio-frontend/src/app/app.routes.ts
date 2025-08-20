@@ -6,6 +6,7 @@ import {Contact} from './domain/contact/contact';
 import { Login } from './domain/login/login';
 import { Edit } from './domain/edit/edit';
 import { NotFound } from './shared/components/error-pages/not-found/not-found';
+import {roleGuard} from './shared/guards/role.guard';
 import { Unauthorized } from './shared/components/error-pages/unauthorized/unauthorized.component';
 
 
@@ -37,10 +38,15 @@ export const routes: Routes = [
   },
   {
     path: 'edit',
-    component: Edit
+    component: Edit,
+    canActivate: [roleGuard]
   },
   {
     path: '**',
     component: NotFound
+  },
+  {
+    path: 'unauthorized',
+    component: Unauthorized
   }
 ];
