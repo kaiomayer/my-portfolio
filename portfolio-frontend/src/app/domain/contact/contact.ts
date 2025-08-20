@@ -95,14 +95,14 @@ export class Contact {
   }
 
   onSubmit() {
-    this.mailService.sendMail(this.form.value).subscribe(
-      data => {
-
-      },
-      error => {
-
-      },
-
+    this.mailService.sendMail(this.preparePayload()).subscribe({
+        error: err => {
+          console.error(`There was an error when trying to submit the e-mail" ${err.message}`);
+        },
+        complete: () => {
+          console.log('Successfully submitted email!');
+        }
+      }
     )
   }
 

@@ -1,1 +1,7 @@
-<p>login works!</p>
+<section>
+  <h2>LOGIN</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <app-generic-input />
+    <app-generic-input />
+  </form>
+</section>
