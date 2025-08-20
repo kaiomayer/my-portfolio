@@ -17,13 +17,6 @@
     margin-bottom: 60px;
 }
 
-.button-all {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-}
-
 .button-left{
     font-weight: bold;
 }
@@ -37,6 +30,13 @@
   cursor: pointer;
   text-decoration: none; 
   
+}
+
+.button-about {
+  display: flex;             
+  justify-content: center;   
+  align-items: center;       
+  gap: 16px;                
 }
 
 .button-left {

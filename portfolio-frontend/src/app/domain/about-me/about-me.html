@@ -5,12 +5,10 @@
 
     </section>
 
-    <section class="about-button">
-        <div class="button-all">
-            <button class="button-left">Conheça mais sobre meu trabalho</button>
-            <button class="button-right" href="">Baixar CV</button>
-        </div>
-    </section>
+    <div class="button-about">
+        <app-button class="button-left" (buttonClick)="handleButtonClick()">Conheça mais sobre meu trabalho</app-button>
+        <app-button class="button-right">Baixar CV</app-button>
+    </div>
 
     <section class="about-main">
         <div class="title-about">Sobre mim</div>
