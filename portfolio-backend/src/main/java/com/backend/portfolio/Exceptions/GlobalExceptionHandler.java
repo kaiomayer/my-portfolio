@@ -12,4 +12,10 @@ public class GlobalExceptionHandler {
         ErrorMessage error = new ErrorMessage(exception.getMessage(), HttpStatus.NOT_FOUND);
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
+
+    @ExceptionHandler(UserAlreadyExistsException.class)
+    public ResponseEntity<?> userAlreadyExistsException(UserAlreadyExistsException exception) {
+        ErrorMessage error = new ErrorMessage(exception.getMessage(), HttpStatus.NOT_FOUND);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+    }
 }
