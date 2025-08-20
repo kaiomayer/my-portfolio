@@ -1,6 +1,7 @@
 package com.backend.portfolio.Controllers;
 
 import com.backend.portfolio.Dtos.LoginDTO;
+import com.backend.portfolio.Exceptions.UserNotFoundException;
 import com.backend.portfolio.Models.User;
 import com.backend.portfolio.Repositories.UserRepository;
 import com.backend.portfolio.Services.AuthService;
@@ -40,11 +41,15 @@ public class AuthController {
     @PostMapping(path = "/login")
     public ResponseEntity<?> login(@RequestBody @Valid LoginDTO data, HttpServletResponse response) {
         try {
+            if (authService.loadUserByUsername(data.getUsername()) == null) {
+                throw new UserNotFoundException("Usuário não encontrado.");
+            }
+
             var userData = new UsernamePasswordAuthenticationToken(data.getUsername(), data.getPassword());
             var auth = authenticationManager.authenticate(userData);
 
             String token = tokenJWTService.generateToken((User) auth.getPrincipal());
-            
+
             ResponseCookie cookie = authService.setTokenInCookie(token);
             response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
             return ResponseEntity.ok(userData);
