@@ -61,7 +61,7 @@ public class AuthController {
 
     @PostMapping(path = "/register")
     public ResponseEntity<?> register(@Valid @RequestBody LoginDTO data) { //usando o dto do login por enquanto;
-        if (userRepository.findByUsername(data.getUsername()) != null) {
+        if (authService.loadUserByUsername(data.getUsername()) != null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Nome de usuário já existe!");
         }
 
