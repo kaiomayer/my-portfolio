@@ -1,6 +1,7 @@
 package com.backend.portfolio.Controllers;
 
 import com.backend.portfolio.Dtos.LoginDTO;
+import com.backend.portfolio.Exceptions.UserAlreadyExistsException;
 import com.backend.portfolio.Exceptions.UserNotFoundException;
 import com.backend.portfolio.Models.User;
 import com.backend.portfolio.Repositories.UserRepository;
@@ -63,7 +64,7 @@ public class AuthController {
     @PostMapping(path = "/register")
     public ResponseEntity<?> register(@Valid @RequestBody LoginDTO data) { //usando o dto do login por enquanto;
         if (authService.loadUserByUsername(data.getUsername()) != null) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Usuário já existe!");
+            throw new UserAlreadyExistsException("Usuário já existe!"); 
         }
 
         User user = userService.save(data);
