@@ -49,7 +49,7 @@ public class AuthController {
             return ResponseEntity.ok(userData);
 
         } catch (AuthenticationException e) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuário ou senha inválidos");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuário ou senha inválidos"); //mudar dps
 
         }
     }
