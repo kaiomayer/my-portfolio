@@ -1,18 +1,25 @@
 <div class="about-header">
     <section class="box">
-    <h2 class="animate__animated animate__slideInLeft">Olá, eu sou <span class="animate__animated animate__flipInY">Nome</span></h2>
-    <span class="sub-title">Sou um desenvolvedor Front-end com 10 anos de experiência </span>
+    <h2 class="animate__animated animate__slideInLeft">
+        {{ texts[lang].title }}
+        <span class="animate__animated animate__flipInY">{{ texts[lang].name }}</span></h2>
+    <span class="sub-title">{{ texts[lang].subtitle }} </span>
 
     </section>
 
     <div class="button-about">
         <app-button class="button-left" (buttonClick)="handleButtonClick()">Conheça mais sobre meu trabalho</app-button>
-        <a href="./assets/cv.pdf" download="cv.pdf"><button matButton="outlined" id="download-btn">Baixar CV</button></a>
+        <a href="./assets/cv.pdf" download="cv.pdf"><app-button class="button-right">{{ texts[lang].sectionTitle }}</app-button></a>
     </div>
 
+  
     <section class="about-main">
-        <div class="title-about">Sobre mim</div>
-        <p class="text-about">Olá! Sou um desenvolvedor full-stack apaixonado, com mais <br> de 5 anos de experiência na criação de soluções digitais que <br> geram impacto real. Atualmente estou no 4 periodo da <br> faculdade faculdade de Engenharia de Software buscando <br> sempre me desenvolver ainda mais em relação ao mercado.</p>
+      
+        <div class="title-about">{{ texts[lang].sectionTitle }}
+            <app-button class="button-language" (click)="changeLanguage('pt')">PT</app-button>
+            <app-button class="button-language" (click)="changeLanguage('en')">EN</app-button>
+        </div>
+        <p class="text-about">{{ texts[lang].presentation }}</p>
         <img src="../../../assets/icons/about-me/about-me.png">
         <li>
             <ul><img src="../../../assets/icons/about-me/Icon 1.png" alt=""></ul>
@@ -24,5 +31,7 @@
             <ul><img src="../../../assets/icons/about-me/Icon 7.png" alt=""></ul>
         </li>
     </section>
+
+
 
 </div>

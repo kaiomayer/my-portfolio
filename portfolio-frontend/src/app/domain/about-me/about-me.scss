@@ -53,11 +53,11 @@
   background-color: #000;
   border-color: var(--app-pink);
 }
+
 .button-right:hover,
 .button-right:focus-visible {
   background-color: #161515;
 }
-
 
 .about-main {
   display: grid;
@@ -71,10 +71,16 @@
   margin-top: 50px;
 }
 
-.about-main > .title-about,
+
 .about-main > .text-about,
 .about-main > li {
   grid-column: 1;
+}
+
+.title-about > .button-language {
+  display: inline-block;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .about-main > img {
@@ -123,4 +129,7 @@
 #download-btn {
   border: 2px solid var(--app-pink);
   color: var(--light-text-white)
+}
+.button-about {
+  
 }
