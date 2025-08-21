@@ -22,7 +22,6 @@ public class TokenJWTService {
 
     public String generateToken(User user) {
         try {
-            System.out.println("Secret: " + secret); //remover dps
             Algorithm algorithm = Algorithm.HMAC256(secret);
 
             String token = JWT.create()

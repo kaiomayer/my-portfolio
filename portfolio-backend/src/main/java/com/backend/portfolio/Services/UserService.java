@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -21,4 +23,7 @@ public class UserService {
         userRepository.save(user);
         return user;
     }
+
+    public void delete(String id) { userRepository.deleteById(id); }
+    public Optional<User> findById(String id) { return userRepository.findById(id); }
 }

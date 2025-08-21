@@ -1,8 +1,12 @@
 package com.backend.portfolio.Controllers;
 
+import com.backend.portfolio.Exceptions.UserNotFoundException;
 import com.backend.portfolio.Services.UserService;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,6 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/users")
 @RequiredArgsConstructor
 public class UserController {
-
     private final UserService userService;
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteUsernameById(@PathVariable String id) {
+        if (userService.findById(id).isEmpty()) {
+            throw new UserNotFoundException("Usuário não existe");
+        }
+        userService.delete(id);
+        return ResponseEntity.ok("Usuário excluído com sucesso!");
+    }
 }
