@@ -9,11 +9,14 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 
 @Service
-@RequiredArgsConstructor
 public class MailService {
     private final JavaMailSender mailSender;
 
-    private String userEmail = System.getenv("EMAIL");
+    private final String userEmail = System.getenv("EMAIL");
+
+    public MailService(JavaMailSender mailSender){
+        this.mailSender = mailSender;
+    }
 
     public void sendSimpleMail(MailDTO mail){
         SimpleMailMessage email = new SimpleMailMessage();

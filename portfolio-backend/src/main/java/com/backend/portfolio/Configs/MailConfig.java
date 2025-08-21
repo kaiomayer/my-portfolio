@@ -1,7 +1,5 @@
 package com.backend.portfolio.Configs;
 
-import java.util.Properties;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -22,6 +20,7 @@ public class MailConfig {
 
         // Check if all required environment variables are present
         if (username == null || password == null) {
+            log.error("There was an error when trying to set the environment variables");
             throw new IllegalStateException("Mail sender environment variables are not fully configured!");
         }
 
