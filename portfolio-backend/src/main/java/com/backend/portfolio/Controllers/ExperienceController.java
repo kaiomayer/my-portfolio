@@ -10,6 +10,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/experiences")
 @RequiredArgsConstructor
 public class ExperienceController {
-
     private final ExperienceService experienceService;
 }
