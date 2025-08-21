@@ -17,11 +17,21 @@ public class UserService {
     private final UserRepository userRepository;
 
     public User save(LoginDTO data) {
-        String encryptedPassword = new BCryptPasswordEncoder().encode(data.getPassword());
+        String encryptedPassword = encryptPassword(data.getPassword());
         User user = new User(data.getUsername(), encryptedPassword);
 
-        userRepository.save(user);
-        return user;
+        return userRepository.save(user);
+    }
+
+    public User update(User user) {
+        String encryptedPassword = encryptPassword(user.getPassword());
+        user.setPassword(encryptedPassword);
+
+        return userRepository.save(user);
+    }
+
+    private String encryptPassword(String password) {
+        return new BCryptPasswordEncoder().encode(password);
     }
 
     public void delete(String id) { userRepository.deleteById(id); }
