@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {NavItem} from '../../../shared/models/navItem.model';
 import {RouterLink, RouterLinkActive} from '@angular/router';
+import {AuthService} from '../../services/AuthService/auth-service';
 
 @Component({
   selector: 'app-header',
@@ -29,18 +30,24 @@ export class Header {
     {
       "text": "Contato",
       "url": "/contact"
-    }, 
+    },
     {
       "text": "Login",
       "url": "/login"
-    }, 
+    },
     {
       "text": "Editar",
       "url": "/edit"
-    }, 
+    },
     {
       "text": "Logout",
       "url": "/logout"
     }
   ];
+
+  public authService : AuthService;
+
+  constructor(authService: AuthService) {
+    this.authService = authService;
+  }
 }

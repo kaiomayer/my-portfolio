@@ -3,14 +3,21 @@
   <nav>
     <ul>
       @for(item of navItems; track item){
-        <li>
-          <a
-            [routerLink]="item.url"
-            [routerLinkActive]="'active-route'"
-          >
-            {{ item.text }}
-          </a>
-        </li>
+        @if(
+          (
+            (this.authService.isLoggedIn() && item.url !== '/login') ||
+            (!this.authService.isLoggedIn() && (item.url !== "/logout" && item.url !== "/edit"))
+          )
+          ){
+          <li>
+            <a
+              [routerLink]="item.url"
+              [routerLinkActive]="'active-route'"
+            >
+              {{ item.text }}
+            </a>
+          </li>
+        }
       }
     </ul>
   </nav>
