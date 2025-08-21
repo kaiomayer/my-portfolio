@@ -16,7 +16,6 @@ import jakarta.validation.Valid;
 @RequestMapping("/api/v1/emails")
 @AllArgsConstructor
 public class MailController {
-
     private final MailService mailService;
 
     @PostMapping(consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
