@@ -27,6 +27,7 @@ public class User implements UserDetails {
 
     @NotBlank
     @Size(min = 5, max = 64)
+    @Column(unique = true)
     private String username;
 
     @NotBlank
@@ -38,9 +39,11 @@ public class User implements UserDetails {
     @Size(max = 500)
     private String description;
 
-    public User(@NotBlank @Size(min = 5, max = 64) String username, @NotBlank String password) {
+    public User(@NotBlank @Size(min = 5, max = 64) String username, @NotBlank String password, @Size(max = 128) String bio, @Size(max = 500) String description) {
         this.username = username;
         this.password = password;
+        this.bio = bio;
+        this.description = description;
     }
 
     @Override

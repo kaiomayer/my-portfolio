@@ -101,6 +101,7 @@ export class Contact {
         },
         complete: () => {
           console.log('Successfully submitted email!');
+          this.form.reset();
         }
       }
     )

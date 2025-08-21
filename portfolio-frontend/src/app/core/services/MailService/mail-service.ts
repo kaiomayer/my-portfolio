@@ -8,7 +8,7 @@ import {Mail} from '../../../shared/models/mail.model';
 })
 export class MailService {
   private httpClient: HttpClient;
-  private BASE_URL = 'http://localhost:8080/emails';
+  private BASE_URL = 'http://localhost:8080/api/v1/emails';
 
   public constructor(httpClient: HttpClient) {
     this.httpClient = httpClient;

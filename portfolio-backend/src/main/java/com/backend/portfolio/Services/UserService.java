@@ -3,7 +3,6 @@ package com.backend.portfolio.Services;
 import com.backend.portfolio.Dtos.LoginDTO;
 import com.backend.portfolio.Models.User;
 import com.backend.portfolio.Repositories.UserRepository;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -18,7 +17,7 @@ public class UserService {
 
     public User save(LoginDTO data) {
         String encryptedPassword = encryptPassword(data.getPassword());
-        User user = new User(data.getUsername(), encryptedPassword);
+        User user = new User(data.getUsername(), encryptedPassword, "", "");
 
         return userRepository.save(user);
     }
