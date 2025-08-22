@@ -61,7 +61,7 @@ public class AuthController {
         }
 
         User user = userService.save(data);
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(user); //alterar dps
     }
 
     @PostMapping(path = "/logout")

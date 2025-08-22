@@ -16,8 +16,8 @@ public class UserService {
     private final UserRepository userRepository;
 
     public User save(LoginDTO data) {
-        String encryptedPassword = encryptPassword(data.getPassword());
-        User user = new User(data.getUsername(), encryptedPassword, "", "");
+        String encryptedPassword = encryptPassword(data.password());
+        User user = new User(data.username(), encryptedPassword, "", "");
 
         return userRepository.save(user);
     }
