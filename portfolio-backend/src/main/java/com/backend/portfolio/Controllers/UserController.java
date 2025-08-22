@@ -15,6 +15,15 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private final UserService userService;
 
+    @GetMapping("/{id}")
+    public ResponseEntity<User> getUser(@PathVariable String id) {
+        if (userService.findById(id).isEmpty()) {
+            throw new UserNotFoundException("Usuário não existe");
+        }
+        User user = userService.findById(id).get();
+        return ResponseEntity.ok(user);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteUsernameById(@PathVariable String id) {
         if (userService.findById(id).isEmpty()) {
