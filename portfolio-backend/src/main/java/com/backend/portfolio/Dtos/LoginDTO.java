@@ -2,21 +2,12 @@ package com.backend.portfolio.Dtos;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
-@AllArgsConstructor
-public class LoginDTO {
+public record LoginDTO (
     @NotBlank
-    @Size(min = 5, max = 64)
-    private String username;
+    @Size(min = 5, max = 64) String username,
+    @NotBlank String password
+){
 
-    @NotBlank
-    private String password;
-
-    public LoginDTO() {}
 }
 
