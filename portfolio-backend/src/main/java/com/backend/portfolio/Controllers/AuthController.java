@@ -1,6 +1,7 @@
 package com.backend.portfolio.Controllers;
 
 import com.backend.portfolio.Dtos.LoginDTO;
+import com.backend.portfolio.Dtos.TokenDTO;
 import com.backend.portfolio.Exceptions.UserAlreadyExistsException;
 import com.backend.portfolio.Exceptions.UserNotFoundException;
 import com.backend.portfolio.Models.User;
@@ -46,7 +47,9 @@ public class AuthController {
 
             ResponseCookie cookie = authService.setTokenInCookie(token);
             response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
-            return ResponseEntity.ok(userData);
+
+            TokenDTO tokenDTO = new TokenDTO(token);
+            return ResponseEntity.ok(tokenDTO);
 
         } catch (AuthenticationException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuário ou senha inválidos"); //mudar dps
