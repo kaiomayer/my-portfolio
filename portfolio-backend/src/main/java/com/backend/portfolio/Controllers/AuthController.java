@@ -1,7 +1,6 @@
 package com.backend.portfolio.Controllers;
 
 import com.backend.portfolio.Dtos.LoginDTO;
-import com.backend.portfolio.Dtos.TokenDTO;
 import com.backend.portfolio.Exceptions.UserAlreadyExistsException;
 import com.backend.portfolio.Exceptions.UserNotFoundException;
 import com.backend.portfolio.Models.User;
@@ -10,7 +9,6 @@ import com.backend.portfolio.Services.TokenJWTService;
 import com.backend.portfolio.Services.UserService;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.*;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -48,8 +46,7 @@ public class AuthController {
             ResponseCookie cookie = authService.setTokenInCookie(token);
             response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
 
-            TokenDTO tokenDTO = new TokenDTO(token);
-            return ResponseEntity.ok(tokenDTO);
+            return ResponseEntity.noContent().build();
 
         } catch (AuthenticationException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuário ou senha inválidos"); //mudar dps
