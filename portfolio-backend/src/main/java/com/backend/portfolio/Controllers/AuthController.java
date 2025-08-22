@@ -36,11 +36,11 @@ public class AuthController {
     @PostMapping(path = "/login")
     public ResponseEntity<?> login(@RequestBody @Valid LoginDTO data, HttpServletResponse response) {
         try {
-            if (authService.loadUserByUsername(data.getUsername()) == null) {
+            if (authService.loadUserByUsername(data.username()) == null) {
                 throw new UserNotFoundException("Usuário não encontrado.");
             }
 
-            var userData = new UsernamePasswordAuthenticationToken(data.getUsername(), data.getPassword());
+            var userData = new UsernamePasswordAuthenticationToken(data.username(), data.password());
             var auth = authenticationManager.authenticate(userData);
 
             String token = tokenJWTService.generateToken((User) auth.getPrincipal());
@@ -59,7 +59,7 @@ public class AuthController {
 
     @PostMapping(path = "/register")
     public ResponseEntity<?> register(@Valid @RequestBody LoginDTO data) { //usando o dto do login por enquanto;
-        if (authService.loadUserByUsername(data.getUsername()) != null) {
+        if (authService.loadUserByUsername(data.username()) != null) {
             throw new UserAlreadyExistsException("Usuário já existe!"); 
         }
 
