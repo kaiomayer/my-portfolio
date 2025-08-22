@@ -1,10 +1,12 @@
 package com.backend.portfolio.Services;
 
 import com.backend.portfolio.Repositories.UserRepository;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.apache.tomcat.util.http.SameSiteCookies;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseCookie;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -25,6 +27,15 @@ public class AuthService implements UserDetailsService {
                 .sameSite("Strict")
                 .path("/")
                 .build();
+    }
+
+    public void removeTokenFromCookie(HttpServletResponse response) {
+        ResponseCookie cookie = ResponseCookie.from("token", "")
+                .httpOnly(true)
+                .maxAge(0)
+                .path("/")
+                .build();
+        response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
     }
 
     @Override

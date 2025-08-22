@@ -56,4 +56,5 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         }
         return null; //nao é uma boa pratica;
     }
+
 }

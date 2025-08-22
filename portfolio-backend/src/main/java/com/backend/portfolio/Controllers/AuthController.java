@@ -65,7 +65,8 @@ public class AuthController {
     }
 
     @PostMapping(path = "/logout")
-    public ResponseEntity<HttpStatus> logout() {
+    public ResponseEntity<HttpStatus> logout(HttpServletResponse response) {
+        authService.removeTokenFromCookie(response);
         return ResponseEntity.noContent().build();
     }
 }
