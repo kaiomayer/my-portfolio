@@ -1,5 +1,5 @@
 <mat-card class="example-card" appearance="outlined">
-  <mat-card-header>
+  <mat-card-header [class.invisible]="isZoomed">
     <mat-card-title>{{ title }}</mat-card-title>
   </mat-card-header>
   <div class="card-content-row">
@@ -12,7 +12,7 @@
         (click)="toggleZoom()"
       >
     </div>
-    <div class="card-info-side">
+    <div class="card-info-side" [class.invisible]="isZoomed">
       <mat-card-content>
         <p>{{ description }}</p>
       </mat-card-content>
