@@ -19,6 +19,12 @@ export class Card {
   @Input() description: string = '';
   @Input() linkUrl: string = '#';
   @Input() linkText: string = 'LINK';
+
+  isZoomed = false;
+
+  toggleZoom() {
+    this.isZoomed = !this.isZoomed;
+  }
 }
 
 

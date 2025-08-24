@@ -4,7 +4,13 @@
   </mat-card-header>
   <div class="card-content-row">
     <div class="card-image-side">
-      <img mat-card-image [src]="imageUrl" [alt]="title">
+      <img
+        mat-card-image
+        [src]="imageUrl"
+        [alt]="title"
+        [class.zoomed]="isZoomed"
+        (click)="toggleZoom()"
+      >
     </div>
     <div class="card-info-side">
       <mat-card-content>
