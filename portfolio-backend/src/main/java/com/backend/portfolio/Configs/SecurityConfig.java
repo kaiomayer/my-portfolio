@@ -37,6 +37,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/v1/auth/*").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/emails").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/v1/users/*").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/auth/*").permitAll()
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();

@@ -17,6 +17,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Objects;
+
 @RestController
 @RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
@@ -69,7 +71,12 @@ public class AuthController {
     }
 
     @GetMapping(path = "/me")
-    public ResponseEntity<UserDTO> loadYourself() {
+    public ResponseEntity<UserDTO> loadMySelf(@CookieValue("token") String token) {
+        
+        String decoded = tokenJWTService.validateToken(token);
+        User user = (User) authService.loadUserByUsername(decoded);
+        UserDTO userDTO = new UserDTO(user.getUsername(), user.getDescription(), user.getBio());
 
+        return ResponseEntity.ok(userDTO);
     }
 }
