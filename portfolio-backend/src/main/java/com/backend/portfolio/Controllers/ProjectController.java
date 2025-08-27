@@ -56,4 +56,20 @@ public class ProjectController {
         projectService.delete(id);
         return ResponseEntity.ok().build();
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Project> updateProject(@PathVariable Long id, @Valid @RequestBody ProjectDTO projectDTO) {
+        if (projectService.findById(id).isEmpty()) {
+            throw new ProjectNotFoundException("Projeto não encontrado.");
+        }
+        Project project = projectService.findById(id).get();
+
+        project.setDescription(projectDTO.description());
+        project.setUrl(projectDTO.url());
+        project.setStartDate(projectDTO.startDate());
+        project.setTitle(projectDTO.title());
+
+        projectService.save(project);
+        return ResponseEntity.ok(project);
+    }
 }
