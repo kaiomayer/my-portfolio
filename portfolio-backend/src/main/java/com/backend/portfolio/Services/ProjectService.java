@@ -18,6 +18,7 @@ public class ProjectService {
     public List<Project> listProjects(){
         return this.projectRepository.findAll();
     }
+    public void delete(Long id) { projectRepository.deleteById(id); }
 
     public void save(Project project){
         projectRepository.save(project);
