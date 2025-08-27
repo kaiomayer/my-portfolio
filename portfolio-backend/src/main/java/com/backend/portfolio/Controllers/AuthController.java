@@ -72,7 +72,7 @@ public class AuthController {
 
     @GetMapping(path = "/me")
     public ResponseEntity<UserDTO> loadMySelf(@CookieValue("token") String token) {
-        
+
         String decoded = tokenJWTService.validateToken(token);
         User user = (User) authService.loadUserByUsername(decoded);
         UserDTO userDTO = new UserDTO(user.getUsername(), user.getDescription(), user.getBio());
