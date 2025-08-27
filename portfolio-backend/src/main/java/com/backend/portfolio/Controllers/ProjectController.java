@@ -1,6 +1,7 @@
 package com.backend.portfolio.Controllers;
 
 import com.backend.portfolio.Dtos.ProjectDTO;
+import com.backend.portfolio.Exceptions.ProjectNotFoundException;
 import com.backend.portfolio.Exceptions.UserNotFoundException;
 import com.backend.portfolio.Models.Project;
 import com.backend.portfolio.Models.User;
@@ -37,7 +38,7 @@ public class ProjectController {
         User user = (User) userService.findByUsername(username);
 
         if (user == null) {
-            throw new UserNotFoundException("Authenticated user not found");
+            throw new UserNotFoundException("Usuário autenticado não encontrado.");
         }
 
         Project newProject = new Project(project.title(), project.startDate(), project.description(),
@@ -47,8 +48,10 @@ public class ProjectController {
         return ResponseEntity.ok(newProject);
     }
 
-    @DeleteMapping
-    public ResponseEntity<HttpStatus> deleteProject(){
-        return ResponseEntity.noContent().build();
+    @DeleteMapping("/{id}")
+    public ResponseEntity<HttpStatus> deleteProject(@PathVariable Long id){
+        if (projectService.findById(id).isEmpty()) {
+            throw new ProjectNotFoundException("Projeto não encontrado."); 
+        }
     }
 }

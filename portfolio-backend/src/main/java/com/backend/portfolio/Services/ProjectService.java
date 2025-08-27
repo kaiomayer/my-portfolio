@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -21,6 +22,8 @@ public class ProjectService {
     public void save(Project project){
         projectRepository.save(project);
     }
+
+    public Optional<Project> findById(Long id) { return projectRepository.findById(id); }
 
     public Project updateProject(){
         return new Project();
