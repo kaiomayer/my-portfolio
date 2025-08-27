@@ -1,6 +1,5 @@
 package com.backend.portfolio.Services;
 
-import com.backend.portfolio.Dtos.PostProject;
 import com.backend.portfolio.Models.Project;
 import com.backend.portfolio.Repositories.ProjectRepository;
 import jakarta.persistence.EntityNotFoundException;

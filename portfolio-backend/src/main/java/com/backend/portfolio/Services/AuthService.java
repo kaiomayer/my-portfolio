@@ -1,5 +1,6 @@
 package com.backend.portfolio.Services;
 
+import com.backend.portfolio.Dtos.UserDTO;
 import com.backend.portfolio.Repositories.UserRepository;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
@@ -42,4 +43,5 @@ public class AuthService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByUsername(username);
     }
+
 }

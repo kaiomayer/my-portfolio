@@ -1,8 +1,11 @@
 package com.backend.portfolio.Controllers;
 
-import com.backend.portfolio.Dtos.PostProject;
+import com.backend.portfolio.Dtos.ProjectDTO;
 import com.backend.portfolio.Models.Project;
+import com.backend.portfolio.Models.User;
+import com.backend.portfolio.Repositories.ProjectRepository;
 import com.backend.portfolio.Services.ProjectService;
+import com.backend.portfolio.Services.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,7 +19,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProjectController {
 
+    private final UserService userService;
     private final ProjectService projectService;
+    private final ProjectRepository projectRepository;
 
     @GetMapping
     public ResponseEntity<List<Project>> listProjects(){
@@ -25,14 +30,19 @@ public class ProjectController {
     }
 
     @PostMapping
-    public ResponseEntity<Project> createProject(@Valid @RequestBody PostProject project){
-        Project p = new Project();
-        return ResponseEntity.created(null).build();
+    public ResponseEntity<Project> createProject(@Valid @RequestBody ProjectDTO project){
+        String username = userService.getAuthenticatedUserId();
+        User user = (User) userService.findByUsername(username);
+
+        Project newProject = new Project(project.title(), project.startDate(), project.description(),
+                                        project.url(), user);
+
+        projectRepository.save(newProject);
+        return ResponseEntity.ok(newProject);
     }
 
     @DeleteMapping
     public ResponseEntity<HttpStatus> deleteProject(){
-
         return ResponseEntity.noContent().build();
     }
 }

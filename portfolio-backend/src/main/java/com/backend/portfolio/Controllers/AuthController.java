@@ -71,12 +71,10 @@ public class AuthController {
     }
 
     @GetMapping(path = "/me")
-    public ResponseEntity<UserDTO> loadMySelf(@CookieValue("token") String token) {
+    public ResponseEntity<UserDTO> loadMySelf() {
+        String username = userService.getAuthenticatedUserId();
+        User user = (User) userService.findByUsername(username);
 
-        String decoded = tokenJWTService.validateToken(token);
-        User user = (User) authService.loadUserByUsername(decoded);
-        UserDTO userDTO = new UserDTO(user.getUsername(), user.getDescription(), user.getBio());
-
-        return ResponseEntity.ok(userDTO);
+        return ResponseEntity.ok(new UserDTO(user.getUsername(), user.getDescription(), user.getBio()));
     }
 }
