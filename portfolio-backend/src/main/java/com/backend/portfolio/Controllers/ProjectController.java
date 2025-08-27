@@ -1,11 +1,13 @@
 package com.backend.portfolio.Controllers;
 
 import com.backend.portfolio.Dtos.ProjectDTO;
+import com.backend.portfolio.Exceptions.UserNotFoundException;
 import com.backend.portfolio.Models.Project;
 import com.backend.portfolio.Models.User;
 import com.backend.portfolio.Repositories.ProjectRepository;
 import com.backend.portfolio.Services.ProjectService;
 import com.backend.portfolio.Services.UserService;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -33,6 +35,10 @@ public class ProjectController {
     public ResponseEntity<Project> createProject(@Valid @RequestBody ProjectDTO project){
         String username = userService.getAuthenticatedUserId();
         User user = (User) userService.findByUsername(username);
+
+        if (user == null) {
+            throw new UserNotFoundException("Authenticated user not found");
+        }
 
         Project newProject = new Project(project.title(), project.startDate(), project.description(),
                                         project.url(), user);
