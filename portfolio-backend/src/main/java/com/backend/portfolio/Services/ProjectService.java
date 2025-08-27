@@ -18,14 +18,8 @@ public class ProjectService {
         return this.projectRepository.findAll();
     }
 
-    public void deleteProject(Long id){
-        Project p = this.projectRepository.findById(id).orElseThrow(EntityNotFoundException::new);
-        this.projectRepository.delete(p);
-    }
-
-    public Project createProject(PostProject project){
-        Project p = new Project();
-        return p;
+    public void save(Project project){
+        projectRepository.save(project);
     }
 
     public Project updateProject(){

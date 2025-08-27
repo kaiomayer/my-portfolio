@@ -43,7 +43,7 @@ public class ProjectController {
         Project newProject = new Project(project.title(), project.startDate(), project.description(),
                                         project.url(), user);
 
-        projectRepository.save(newProject);
+        projectService.save(newProject);
         return ResponseEntity.ok(newProject);
     }
 
