@@ -19,7 +19,7 @@ export class AboutMe {
   texts = {
     pt: {
       title: 'Olá, eu sou',
-      name: 'Nome',
+      name: 'Kaio',
       subtitle: 'Sou um desenvolvedor Front-end com 10 anos de experiência',
       presentation: 'Olá! Sou um desenvolvedor full-stack apaixonado, com mais de 5 anos de experiência na criação de soluções digitais que geram impacto real. Atualmente estou no 4º período da faculdade de Engenharia de Software buscando sempre me desenvolver ainda mais.',
       buttonWork: 'Conheça mais sobre meu trabalho',
@@ -28,7 +28,7 @@ export class AboutMe {
     },
     en: {
       title: 'Hi, I am',
-      name: 'Name',
+      name: 'Kaio',
       subtitle: 'I am a Front-end developer with 10 years of experience',
       presentation: 'Hi! I am a passionate full-stack developer with more than 5 years of experience creating digital solutions that make a real impact. I am currently in the 4th semester of Software Engineering, constantly striving to improve my skills.',
       buttonWork: 'Check out my work',
