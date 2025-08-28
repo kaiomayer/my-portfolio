@@ -7,7 +7,7 @@ import {MatButton} from '@angular/material/button';
 
 @Component({
   selector: 'app-about-me',
-  imports: [ButtonComponent, MatButton],
+  imports: [ButtonComponent],
   templateUrl: './about-me.html',
   styleUrl: './about-me.scss'
 })
